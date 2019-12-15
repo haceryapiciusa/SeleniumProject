@@ -9,23 +9,25 @@
 <h1 style="color: green">Practice</h1>
 
 <form action="/someUrl" method="GET">
-    Text Box <br>  <input type="text" /><br/>
+    Text Box <br>  <input type="text" name="text" /><br/>
     Password Input<br> <input type="password" name="password" id="password"/><br/>
     Text Area<br>
     <textarea name="username"></textarea><br>
     Dropdown <br><p>
     <select name="Options">
-        <option value="volvo">Options1</option>
-        <option value="audi">Options2</option>
+        <option value="Options1">Options1</option>
+        <option value="Options2">Options2</option>
+        <option value="Options3">Options3</option>
+        <option value="Options4">Options4</option>
     </select><br>
    <p> Checkbox<br>
-    <input type="checkbox"><br><p>
+    <input type="checkbox" name="checkbox"><br><p>
     Radio Select<br>
-    <input type="radio"/>
-    <input type="radio"/>
-    <input type="radio"/>
+    <input type="radio" name="radio"/>
+    <input type="radio" name="radio"/>
+    <input type="radio" name="radio"/>
     <p>Submit</p>
-    <input type="submit"/>
+    <input type="submit" id="submit"/>
 </form>
 
 </body>

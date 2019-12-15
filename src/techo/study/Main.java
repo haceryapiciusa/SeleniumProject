@@ -9,11 +9,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://www.techno.study/");
+        driver.get("file:///Users/haceryapici/Documents/SeleniumProject/src/day2/practice.html");
         Thread.sleep(6000);
         driver.quit();
-
-
 
     }
 }

@@ -19,6 +19,8 @@ public class CountingElementsOnPage {
         for(String tag : tagsForTesting) {
             printNumberOfElementsOnAPage( driver, tag );
         }
+       // List<String> list = new ArrayList<>();
+
 
         driver.quit();
     }

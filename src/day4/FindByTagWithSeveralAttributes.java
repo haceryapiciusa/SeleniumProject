@@ -23,6 +23,6 @@ public class FindByTagWithSeveralAttributes {
         }
 
         // css selector can have several attributes
-        driver.quit();
+        //driver.quit();
     }
 }

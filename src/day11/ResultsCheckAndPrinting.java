@@ -2,13 +2,15 @@ package day11;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ChromeBrowser {
+public class ResultsCheckAndPrinting {
     public static void main(String[] args) {
         System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         WebDriver driver = new ChromeDriver();
@@ -30,16 +32,21 @@ public class ChromeBrowser {
             // there's no results for first search, continue
         }
 
-        driver.findElement(By.cssSelector("input[placeholder=\"Name\"]")).sendKeys("12");
+        driver.findElement(By.cssSelector("input[placeholder=\"Name\"]")).sendKeys("2");
         driver.findElement(By.xpath("//span[contains(text(),'Search')]")).click();
 
+
+
         try {
-            wait.until( ExpectedConditions.presenceOfElementLocated( By.xpath("//td[contains(@class,'name') and contains(text(), '12')]") ) );
+            wait.until( ExpectedConditions.numberOfElementsToBe( By.cssSelector( "tbody > tr" ), 2)  );
             System.out.println("Success!");
         } catch (Exception e){
             System.out.println("Failure!");
         }
-
+        List<WebElement> elements = driver.findElements( By.cssSelector( "tbody > tr > td:nth-child(2)" ) );
+        for(WebElement e: elements) {
+            System.out.println(e.getText());
+        }
         driver.quit();
     }
 }

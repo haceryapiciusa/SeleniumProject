@@ -2,15 +2,14 @@ package day11;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ResultsCheckAndPrinting {
+public class ResultsCheckOfPagnationAndBack {
+    //at the end of this file, add click on "Previous" page, and expect results to be 10
     public static void main(String[] args) {
         System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         WebDriver driver = new ChromeDriver();
@@ -25,17 +24,18 @@ public class ResultsCheckAndPrinting {
         driver.findElement(By.xpath("//span[contains(text(),'Entrance Exams')]")).click();
         driver.findElement(By.xpath("//span[contains(text(),'Entrance Exams')]/../..//span[contains(text(),'Setup')]")).click();
         driver.findElement(By.xpath("//span[contains(text(),'Setup')]/../..//span[contains(text(),'Entrance Exams')]")).click();
-        WebDriverWait wait = new WebDriverWait( driver, 15 );
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+
         try {
             wait.until( ExpectedConditions.presenceOfElementLocated( By.cssSelector( "tbody > tr" ) ) ); //this is to wait for the first search
         } catch (Exception e){
             // there's no results for first search, continue
         }
 
-        driver.findElement(By.cssSelector("input[placeholder=\"Name\"]")).sendKeys("2");
-        driver.findElement(By.xpath("//span[contains(text(),'Search')]")).click();
+        driver.findElement(By.xpath("//*[@class='cc-btn cc-dismiss']")).click();
 
-
+        wait.until( ExpectedConditions.visibilityOfElementLocated(By.className("mat-paginator-navigation-next")  ) );
+        driver.findElement(By.className("mat-paginator-navigation-next")).click();
 
         try {
             wait.until( ExpectedConditions.numberOfElementsToBe( By.cssSelector( "tbody > tr" ), 2)  );
@@ -43,10 +43,17 @@ public class ResultsCheckAndPrinting {
         } catch (Exception e){
             System.out.println("Failure!");
         }
-        List<WebElement> elements = driver.findElements( By.cssSelector( "tbody > tr > td:nth-child(2)" ) );
-        for(WebElement e: elements) {
-            System.out.println(e.getText());
+
+        driver.findElement(By.className("mat-paginator-navigation-previous")).click();
+
+        try {
+            wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("tbody > tr "), 10));
+            System.out.println("Previous page Success!");
+        } catch (Exception e) {
+            System.out.println("Failure!");
         }
+
         //driver.quit();
+
     }
 }

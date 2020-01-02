@@ -25,7 +25,8 @@ public class ChromeBrowser {
         driver.findElement(By.xpath("//span[contains(text(),'Setup')]/../..//span[contains(text(),'Entrance Exams')]")).click();
         WebDriverWait wait = new WebDriverWait( driver, 15 );
         try {
-            wait.until( ExpectedConditions.presenceOfElementLocated( By.cssSelector( "tbody > tr" ) ) ); //this is to wait for the first search
+            wait.until( ExpectedConditions.presenceOfElementLocated( By.cssSelector( "tbody > tr" ) ) );
+            //this is to wait for the first search
         } catch (Exception e){
             // there's no results for first search, continue
         }

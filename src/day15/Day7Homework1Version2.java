@@ -13,7 +13,7 @@ public class Day7Homework1Version2 {
 
     @BeforeClass
     public void init(){
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         driver = new ChromeDriver();
         driver.get( "https://www.seleniumeasy.com/test/bootstrap-alert-messages-demo.html" );
     }

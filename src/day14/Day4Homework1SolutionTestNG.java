@@ -36,7 +36,7 @@ public class Day4Homework1SolutionTestNG {
 
     @BeforeClass
     public void setup() throws InterruptedException {
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         driver = new ChromeDriver();
         driver.get( "https://www.seleniumeasy.com/test/" );
     }

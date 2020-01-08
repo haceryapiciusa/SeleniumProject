@@ -20,7 +20,7 @@ public class CheckingValuesTestNG {
     public void setup(){
         System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         driver = new ChromeDriver();
-        driver.get( "file:///D:/Project/seleniumWorking/src/day3/resources/form.html" );
+        driver.get( "file:///Users/haceryapici/Documents/SeleniumProject/src/day3/form.html" );
     }
 
     @AfterClass

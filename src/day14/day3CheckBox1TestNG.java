@@ -18,7 +18,7 @@ public class day3CheckBox1TestNG {
     }
     @BeforeClass
     public void prepareWebDriver(){
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         driver = new ChromeDriver();
         driver.get( "https://www.seleniumeasy.com/test/basic-checkbox-demo.html" );
     }

@@ -19,7 +19,7 @@ public class Task4 {
 
     @BeforeClass
     public void init(){
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         driver = new ChromeDriver();
         driver.get( "https://www.seleniumeasy.com/test/bootstrap-alert-messages-demo.html" );
     }
@@ -32,7 +32,7 @@ public class Task4 {
     @Test
     public void test(){
         driver.findElement( By.id( "autoclosable-btn-success" ) ).click();
-        WebDriverWait wait = new WebDriverWait( driver, 4 );
+        WebDriverWait wait = new WebDriverWait( driver, 6 );
         wait.until( ExpectedConditions.invisibilityOfElementLocated( By.className( "alert-autocloseable-success" ) ) );
     }
 }

@@ -19,7 +19,7 @@ public class Task2Solution {
 
     @BeforeClass
     public void setup() {
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty( "webdriver.chrome.driver", "/Users/haceryapici/Desktop/Selenyum/chromedriver" );
         driver = new ChromeDriver();
         driver.get( "http://the-internet.herokuapp.com/add_remove_elements/" );
 
@@ -40,7 +40,6 @@ public class Task2Solution {
             btn.click();
         }
     }
-
     @Parameters({"number2"})
     @Test
     public void deleteButtonsAndValidate(String num) {
